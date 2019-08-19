@@ -17,10 +17,10 @@ public class UserController {
     public ResponseWrapper login(@RequestBody tUser tuser)
     {
         System.out.println(tuser);
-        if(userService.login(tuser))
-        return new ResponseWrapper<String>(
+        if(userService.login(tuser)!=null)
+        return new ResponseWrapper<Integer>(
             200, "SUCCESS",
-            "login_success");
+                userService.login(tuser));
 
         return new ResponseWrapper<String>(
                 400, "ERROR",
@@ -33,6 +33,7 @@ public class UserController {
     {
         System.out.println(tuser);
         return userService.register(tuser);
+
     }
     @GetMapping("/test")
     public void test()

@@ -12,11 +12,10 @@ public class UserServiceimpl implements UserService {
    @Autowired
    private UserDao userDao;
     @Override
-    public boolean login(tUser tuser) {
-        List<tUser> list=userDao.login(tuser);
-        if(list.size()>0)
-        return true;
-        return false;
+    public Integer login(tUser tuser) {
+
+        return userDao.login(tuser);
+
     }
 
     @Override
